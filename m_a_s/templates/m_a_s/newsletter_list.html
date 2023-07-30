@@ -125,8 +125,8 @@
   <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
 
     <div class="lh-1">
-      <h1 class="h6 mb-0 text-white lh-1">Here is </h1>
-      <small>Since 2011</small>
+      <h1 class="h6 mb-0 lh-1 " >This is the newsletters page, here you can create a new one or edit existing ones.</h1>
+
     </div>
   </div>
 
@@ -139,7 +139,7 @@
       <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
         <div class="d-flex justify-content-between">
           <strong class="text-gray-dark">{{ object.newsletter_title }}</strong>
-          <a href="#">Details</a>
+          <a href="{% url 'mas:newsletter_details' object.pk %}">View details</a>
         </div>
         <span class="d-block">{{ object.time_of_sending_the_newsletter }}</span>
         <span class="d-block">{{ object.interval }}</span>
