@@ -19,7 +19,7 @@ class Newsletter(models.Model):
         (CREATED, 'created'),
         (LAUNCHED, 'launched')
     ]
-
+    newsletter_title = models.CharField(max_length=100, verbose_name='title', **NULLABLE)
     time_of_sending_the_newsletter = models.TimeField(auto_now=False, auto_now_add=False,
                                                       verbose_name='time of sending the newsletter')
     interval = models.CharField(max_length=1, choices=INTERVAL_CHOICES, default=DAILY)
@@ -53,7 +53,7 @@ class ClientOfService(models.Model):
 class Message(models.Model):
     message_title = models.CharField(max_length=250, verbose_name='message title')
     message_content = models.TextField(max_length=150, verbose_name='message content')
-    newsletter = models.OneToOneField('Newsletter', on_delete=models.CASCADE, primary_key = True)
+    newsletter = models.OneToOneField('Newsletter', on_delete=models.CASCADE, primary_key=True)
 
     def __str__(self):
         return f'{self.message_title} - {self.message_content}'
@@ -78,8 +78,3 @@ class NewsletterLogs(models.Model):
         verbose_name = 'newsletter logs'
         verbose_name_plural = 'newsletters logs'
         ordering = ('datatime_of_last_try',)
-
-
-
-
-
