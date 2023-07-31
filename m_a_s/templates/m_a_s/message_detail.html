@@ -122,7 +122,7 @@
 <main>
 
     <div class="container marketing">
-    <a class="btn btn-danger btn-lg btn-block" href="{% url 'mas:newsletters_list' %}">Back </a><p><p>
+    <a class="btn btn-danger btn-lg btn-block" href="{% url 'mas:newsletter_details' object.pk %}">Back </a><p><p>
 
         <hr class="featurette-divider">
 
@@ -131,24 +131,17 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="text">Newsletter title: </h2><p>
-                <h4 class="text">{{ object.newsletter_title }}</h4><p>
+                <h2 class="text">Message title: </h2><p>
+                <h4 class="text">{{ object.message_title }}</h4><p>
                 <hr class="featurette-divider">
-                <h2 class="text">Status:</h2>
-                <h4 class="text">{{ object.newsletter_status|title }}</h4>
-                <hr class="featurette-divider">
-                <h2 class="text">Time of sending the newsletter: </h2><p>
-                <h4 class="text">{{ object.time_of_sending_the_newsletter|title }}</h4>
-                <hr class="featurette-divider">
-                <h2 class="text">Interval: </h2><p>
-                <h4 class="text">"{{ object.interval }}"</h4><p><p>
+                <h2 class="text">Content:</h2>
+                <h4 class="text">{{ object.message_content }}</h4>
 
             </div>
         </div>
 
 
         <hr class="featurette-divider">
-        <p><a class="btn btn-success btn-lg btn-block " href="{% url 'mas:message_details' object.pk %}">Look at the message </a><p>
 
     </div>
 

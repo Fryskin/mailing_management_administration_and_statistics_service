@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
-from m_a_s.models import ClientOfService, Newsletter
+from m_a_s.models import ClientOfService, Newsletter, Message
 
 
 class ClientOfServiceListView(ListView):
@@ -18,6 +18,10 @@ class NewsletterListView(ListView):
 
 class NewsletterDetailView(DetailView):
     model = Newsletter
+
+
+class MessageDetailView(DetailView):
+    model = Message
 
 
 

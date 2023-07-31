@@ -38,7 +38,7 @@ class Newsletter(models.Model):
 class ClientOfService(models.Model):
     contact_email = models.EmailField(max_length=254, unique=True, verbose_name='contact email')
     last_first_middle_name = models.CharField(max_length=150, verbose_name='full name')
-    comment = models.TextField(max_length=500, verbose_name='comment')
+    comment = models.TextField(max_length=5000, verbose_name='comment')
     newsletter_id = models.ForeignKey('Newsletter', on_delete=models.CASCADE, verbose_name='newsletter id')
 
     def __str__(self):
@@ -52,7 +52,7 @@ class ClientOfService(models.Model):
 
 class Message(models.Model):
     message_title = models.CharField(max_length=250, verbose_name='message title')
-    message_content = models.TextField(max_length=150, verbose_name='message content')
+    message_content = models.TextField(max_length=5000, verbose_name='message content')
     newsletter = models.OneToOneField('Newsletter', on_delete=models.CASCADE, primary_key=True)
 
     def __str__(self):

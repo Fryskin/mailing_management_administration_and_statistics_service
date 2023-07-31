@@ -124,10 +124,10 @@
 <main>
 
     <div class="container marketing">
-
+    <a class="btn btn-danger btn-lg btn-block" href="{% url 'mas:m_a_s_list' %}">Back </a><p><p>
 
         <hr class="featurette-divider">
-        <a class="btn btn-danger btn-lg btn-block" href="{% url 'mas:m_a_s_list' %}">Back </a><p><p>
+
         <p><a class="btn btn-success btn-lg btn-block" href="#">Edit </a><p>
 
 
@@ -137,7 +137,7 @@
                 <h2 class="text">{{ object.contact_email }}</h2>
                 <hr class="featurette-divider">
                 <h2 class="text">About:</h2>
-                <p class="lead">{{ object.comment }}</p>
+                <p class="lead">{{ object.interval }}</p>
             </div>
             <div class="col-md-5">
                 <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
