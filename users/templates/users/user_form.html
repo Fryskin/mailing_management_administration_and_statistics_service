@@ -1,0 +1,29 @@
+{% extends 'm_a_s/base.html' %}
+{% block content %}
+<div class="col-12">
+
+
+    <form class="row" method="post">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button class="btn btn-primary w-100 py-2 mb-3" type="submit">Save</button>
+                    <a href="{% url 'users:generate_new_password' %}" class="btn btn-danger w-100 py-2" style="text-black">Generate the New Password</a>
+
+
+
+
+                </div>
+            </div>
+            <div class="card-body">
+
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

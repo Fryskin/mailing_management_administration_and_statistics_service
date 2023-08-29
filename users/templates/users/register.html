@@ -1,0 +1,25 @@
+{% extends 'm_a_s/base.html' %}
+{% block content %}
+<div class="col-12">
+
+
+    <form class="row" method="post">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button class="btn btn-primary w-100 py-2" type="submit">Sign up</button>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
