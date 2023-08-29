@@ -1,0 +1,39 @@
+{% extends 'm_a_s/base.html' %}
+{% block content %}
+<main>
+
+    <div class="container marketing">
+    <a class="btn btn-danger btn-lg btn-block" href="{% url 'blogs:blog_list' %}">Back </a><p><p>
+
+        <hr class="featurette-divider">
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="text">Creator: </h2>
+                <h3 class="text">{{ object.owner|default:"God person" }}</h3>
+                <hr class="featurette-divider">
+                <h2 class="text">Title:</h2><p>
+                <h3 class="text">{{ object.title }}</h3>
+                <hr class="featurette-divider">
+                <h2 class="text">Content:</h2>
+                <h3 class="text">{{ object.content }}</h3>
+
+            </div>
+            <div class="col-md-5">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Upload photo please</title>
+                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
+                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+                </svg>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+    </div>
+
+
+
+</main>
+
+{% endblock %}
