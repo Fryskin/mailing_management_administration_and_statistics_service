@@ -1,0 +1,24 @@
+{% extends 'm_a_s/base.html' %}
+{% block content %}
+<div class="col-12">
+
+
+    <form class="row" method="post">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-primary" type="submit">Save</button>
+                    <a class="btn btn-danger" href="{% url 'mas:m_a_s_list' %}" type="submit">Back</a>
+
+
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

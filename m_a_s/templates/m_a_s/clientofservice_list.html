@@ -1,6 +1,18 @@
 {% extends 'm_a_s/base.html' %}
 
 {% block content %}
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Clients</h1>
+        <p class="lead text-body-secondary">Here your clients.</p>
+        <p>
+
+        </p>
+      </div>
+    </div>
+  </section>
+
     <div class="col-lg-4">
             <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
                  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>
@@ -9,9 +21,15 @@
             </svg>
             <h2 class="fw-normal">New Client</h2>
             <p>There may be a description.</p>
-            <p><a class="btn btn-secondary" href="#">Add new &raquo;</a></p>
+        {% if user.is_authenticated %}
+            <p><a class="btn btn-secondary" href="{% url 'mas:add_client' %}">Add new one &raquo;</a></p>
+        {% else %}
+            <p><a class="btn btn-secondary" href="{% url 'users:log_in' %}">Add new one &raquo;</a></p>
+        {% endif %}
         </div><!-- /.col-lg-4 -->
+
     {% for object in object_list %}
+        {% if object.owner == request.user %}
         <div class="col-lg-4">
             <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
                  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>
@@ -22,5 +40,6 @@
             <p>{{ object.comment|truncatechars:50 }}</p>
             <p><a class="btn btn-secondary" href="{% url 'mas:client_details' object.pk %}">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
+        {% endif %}
     {% endfor %}
 {% endblock %}
