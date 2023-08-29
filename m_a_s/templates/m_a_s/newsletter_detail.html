@@ -125,13 +125,17 @@
     <a class="btn btn-danger btn-lg btn-block" href="{% url 'mas:newsletters_list' %}">Back </a><p><p>
 
         <hr class="featurette-divider">
-
-        <p><a class="btn btn-success btn-lg btn-block " href="#">Edit </a><p>
-
-
+    {% if object.owner == request.user %}
+        <p><a class="btn btn-success btn-lg btn-block " href="{% url 'mas:edit_newsletter' object.pk %}">Edit </a>
+        <a class="btn btn-primary btn-lg btn-block " href="{% url 'mas:delete_newsletter' object.pk %}">Delete </a>
+        <a class="btn btn-primary btn-lg btn-block " href="{% url 'mas:send_page' %}">Send </a>
+    {% endif %}
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="text">Newsletter title: </h2><p>
+                <h2 class="text">Creator: </h2>
+                <h3 class="text">{{ object.owner|default:"God person" }}</h3>
+                <hr class="featurette-divider">
+                <h2 class="text">Newsletter title:</h2><p>
                 <h4 class="text">{{ object.newsletter_title }}</h4><p>
                 <hr class="featurette-divider">
                 <h2 class="text">Status:</h2>
