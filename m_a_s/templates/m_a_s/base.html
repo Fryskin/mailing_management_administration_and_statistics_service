@@ -140,10 +140,11 @@
                 </svg>
                 <div class="container">
                     <div class="carousel-caption text-start">
-                        <h1>Example headline.</h1>
-                        <p class="opacity-75">Some representative placeholder content for the first slide of the
-                            carousel.</p>
-                        <!--            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>-->
+                        <h1>Join to the best.</h1>
+                        <p class="opacity-75">Millions people are waiting till you will send some ad to them.  </p>
+                        {% if not user.is_authenticated %}
+                                    <p><a class="btn btn-lg btn-primary" href="{% url 'users:register' %}">Sign up today</a></p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -154,8 +155,8 @@
                 </svg>
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Some representative placeholder content for the second slide of the carousel.</p>
+                        <h1>MAS.</h1>
+                        <p>Mailing, administrating, service.</p>
                         <p><a class="btn btn-lg " href="#">Learn more</a></p>
                     </div>
                 </div>
@@ -167,9 +168,9 @@
                 </svg>
                 <div class="container">
                     <div class="carousel-caption text-end">
-                        <h1>One more for good measure.</h1>
-                        <p>Some representative placeholder content for the third slide of this carousel.</p>
-                        <p><a class="btn btn-lg" href="#">Browse gallery</a></p>
+                        <h1>If you don't want to go to newsletter, then newsletter goes to you.</h1>
+                        <p>Just add a new clients and newsletters.</p>
+                        <p><a class="btn btn-lg" href="{% url 'mas:add_newsletter' %}">Add newsletter</a></p>
 
                     </div>
                 </div>
@@ -200,7 +201,7 @@
 
     <footer class="container">
         <p class="float-end"><a href="#">Back to top</a></p>
-        <p>&copy; 2023–2077 Satongast, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2023–2077 Satongast, Inc. &middot; <a href="https://open.spotify.com/artist/6O0Mz5xoLil6Ak6Gu93C6Q">Privacy</a> &middot; <a href="https://open.spotify.com/artist/6O0Mz5xoLil6Ak6Gu93C6Q">Terms</a></p>
     </footer>
 </main>
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
