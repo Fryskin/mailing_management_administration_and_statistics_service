@@ -1,0 +1,88 @@
+{% extends 'm_a_s/base.html' %}
+{% block content %}
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Main Page</h1>
+        <p class="lead text-body-secondary">Just all that you need.</p>
+        <p class="lead text-body-secondary">Count of newsletters: {{ count_of_newsletters }}</p>
+        <p class="lead text-body-secondary">Count of launched newsletters: {{ count_of_active_newsletters }}</p>
+        <p class="lead text-body-secondary">Count of unique clients: {{ unique_clients_count }}</p>
+        <p>
+
+        </p>
+      </div>
+    </div>
+  </section>
+    <h1 class="fw-light">The Last News</h1>
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-1 mb-4">
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: IMG" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">IMG</text></svg>
+            <div class="card-body">
+              <h3 class="card-text-center">{{ random_blog_1.title }}</h3>
+              <p class="card-text">{{ random_blog_1.content }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+
+                </div>
+                <small class="text-body-secondary">{{ random_blog_1.count_of_views }} views</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+      <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-1 mb-4">
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: IMG" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">IMG</text></svg>
+            <div class="card-body">
+              <h3 class="card-text-center">{{ random_blog_2.title }}</h3>
+              <p class="card-text">{{ random_blog_2.content }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+
+                </div>
+                <small class="text-body-secondary">{{ random_blog_2.count_of_views }} views</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+      <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-1 mb-4">
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: IMG" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">IMG</text></svg>
+            <div class="card-body">
+              <h3 class="card-text-center">{{ random_blog_3.title }}</h3>
+              <p class="card-text">{{ random_blog_3.content }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+
+                </div>
+                <small class="text-body-secondary">{{ random_blog_3.count_of_views }} views</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+</main>
+
+{% endblock %}
