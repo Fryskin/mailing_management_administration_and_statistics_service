@@ -12,7 +12,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from blogs.models import Blog
 from m_a_s.forms import ClientForm, NewsletterForm, MessageForm
-from m_a_s.management.commands.jobs import my_job
+
 from m_a_s.models import ClientOfService, Newsletter, Message
 
 
@@ -113,7 +113,6 @@ class NewsletterDetailView(DetailView):
 
     def cache_create(self):
 
-
         if settings.CACHE_ENABLED:
             key = f'newsletters_list_{self.object.pk}'
             newsletters_list = cache.get(key)
@@ -189,28 +188,10 @@ class StatView(TemplateView):
         blog_3 = Blog.objects.all()[random_pk_3]
         context['random_blog_3'] = blog_3
 
-
         return context
 
 
 def start_mailing(request):
-
-    # os.system('python manage.py jobs')
-
-    for usr in ClientOfService.objects.order_by("contact_email"):
-        email = str(usr).split()[-1].replace('(', '').replace(')', '')
-        newsletter_title = str(Newsletter.objects.all()).replace('<', '|').split('|')[2].replace('>', '').split(':')[1]. \
-            replace(',', '')
-
-        sms = str(Message.objects.all()).replace('<', '|').split('|')[2].replace('>', '').split(':')[1]. \
-            replace(',', '')
-        send_mail(
-            subject=newsletter_title,
-            message=sms,
-            from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[email]
-
-        )
+    os.system('python manage.py jobs')
 
     return redirect(reverse('m_a_s:main_page'))
-
