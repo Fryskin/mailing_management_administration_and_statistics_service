@@ -12,22 +12,24 @@ from django_apscheduler.jobstores import DjangoJobStore
 from django_apscheduler.models import DjangoJobExecution
 from django_apscheduler import util
 
-from m_a_s.models import ClientOfService
+from m_a_s.models import ClientOfService, Newsletter, Message
 
 logger = logging.getLogger(__name__)
 
 
 def my_job():
+    for message in Message.objects.all():
+        for client in ClientOfService.objects.all():
 
-    for usr in ClientOfService.objects.order_by("contact_email"):
-        email = str(usr).split()[-1].replace('(', '').replace(')', '')
-        send_mail(
-            subject='.',
-            message=f'Your ',
-            from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[email]
+            email = client.contact_email
+            send_mail(
+                subject=message.message_title,
+                message=message.message_content,
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[email]
+            )
 
-        )
+        break
 
 
 def delete_old_job_executions(max_age=604_800):
@@ -51,7 +53,7 @@ class Command(BaseCommand):
 
     scheduler.add_job(
       my_job,
-      trigger=CronTrigger(second="*/86400"),
+      trigger=CronTrigger(second="*/59"),
       id="my_job",  # The `id` assigned to each job MUST be unique
       max_instances=1,
       replace_existing=True,
